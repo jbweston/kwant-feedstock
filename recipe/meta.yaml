@@ -1,5 +1,5 @@
 {% set name = "kwant" %}
-{% set version = "1.1.2" %}
+{% set version = "1.2.2" %}
 {% set variant = "openblas" %}
 
 package:
@@ -9,10 +9,10 @@ package:
 source:
   fn: v{{ version }}.tar.gz
   url: https://gitlab.kwant-project.org/kwant/kwant/repository/archive.tar.gz?ref=v{{ version }}
-  sha256: a47544a8416b19a56da3d511610c9e09ed3bf84f66461d9f95f0f6fefebd0179
+  sha256: d298791b920aa5a8191a83178e85472310db678b8237eaa928a8b2a347e825d8
 
 build:
-  skip: true  # [win or py3k]
+  skip: true  # [win or py2k]
   number: 200
   features:
     - blas_{{ variant }}
