@@ -8,12 +8,12 @@ package:
 
 source:
   fn: v{{ version }}.tar.gz
-  url: https://gitlab.kwant-project.org/kwant/kwant/repository/archive.tar.gz?ref=v{{ version }}
-  sha256: a47544a8416b19a56da3d511610c9e09ed3bf84f66461d9f95f0f6fefebd0179
+  url: https://downloads.kwant-project.org/kwant/kwant-{{ version }}.tar.gz
+  sha256: 64e5606c344a1b2105c84cd43d12b9a6f0ac3703e174ddfceac02d39d305e1f6
 
 build:
   skip: true  # [win or py3k]
-  number: 201
+  number: 202
   features:
     - blas_{{ variant }}
 
