@@ -1,5 +1,5 @@
 {% set name = "kwant" %}
-{% set version = "1.2.3" %}
+{% set version = "1.3.0" %}
 {% set variant = "openblas" %}
 
 package:
@@ -9,7 +9,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://downloads.kwant-project.org/kwant/kwant-{{ version }}.tar.gz
-  sha256: 0577b43f9451b99e59f75e07cd07dafba4cbfaafe3dc72ac2f393620107c7096
+  sha256: 8a507df7de3513c4fe01e7e547b6c3eaa480d581391995b717f980aa9d36be34
 
 build:
   skip: true  # [win or py2k]
@@ -28,7 +28,7 @@ requirements:
     - mumps
     - numpy x.x
     - scipy
-    - nose
+    - pytest
     - tinyarray
     - libgfortran  # [linux]
 
@@ -40,7 +40,7 @@ requirements:
     - numpy x.x
     - matplotlib
     - scipy
-    - nose
+    - pytest
     - tinyarray
     - libgfortran
 
