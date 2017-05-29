@@ -1,5 +1,5 @@
 diff --git a/setup.py b/setup.py
-index f3268a2..99dbfd7 100755
+index f3268a2..dfe2bbe 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -69,6 +69,8 @@ def configure_extensions(exts, aliases=(), build_summary=None):
@@ -11,19 +11,36 @@ index f3268a2..99dbfd7 100755
      #### Handle section aliases.
      for short, long in aliases:
          if short in configs:
-@@ -82,6 +84,7 @@ def configure_extensions(exts, aliases=(), build_summary=None):
+@@ -79,10 +81,14 @@ def configure_extensions(exts, aliases=(), build_summary=None):
+             configs[long] = configs[short]
+             del configs[short]
+
++    print('CONFIGS AYYY:', configs['kwant.linalg.lapack']['libraries'])
++
      #### Apply config from file.  Use [DEFAULT] section for missing sections.
      defaultconfig = configs.defaults()
      for name, kwargs in exts.items():
-+        print('applying', name, kwargs)
          config = configs[name] if name in configs else defaultconfig
++        if name == 'kwant.linalg.lapack':
++            print('YOLO', config, defaultconfig)
          for key, value in config.items():
 
-@@ -114,6 +117,8 @@ def configure_extensions(exts, aliases=(), build_summary=None):
-         print('Error: Unknown sections in file {}: {}'.format(
+             # Most, but not all, keys are lists of strings
+@@ -103,6 +109,10 @@ def configure_extensions(exts, aliases=(), build_summary=None):
+                 msg = 'Caution: user config in file {} shadows {}.{}.'
+                 if build_summary is not None:
+                     build_summary.append(msg.format(config_file, name, key))
++
++            if name == 'kwant.linalg.lapack':
++                print('SETTING', key, value)
++
+             kwargs[key] = value
+
+         kwargs.setdefault('depends', []).append(config_file)
+@@ -115,6 +125,8 @@ def configure_extensions(exts, aliases=(), build_summary=None):
              config_file, ', '.join(unknown_sections)))
          sys.exit(1)
-+    
-+    print(exts)
 
++    print(exts)
++
      return exts
