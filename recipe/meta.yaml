@@ -16,6 +16,8 @@ build:
   number: 201
   features:
     - blas_{{ variant }}
+  features:
+    - vc14  # [win and >py35]
 
 requirements:
   build:
@@ -31,6 +33,7 @@ requirements:
     - pytest
     - tinyarray
     - libgfortran  # [linux]
+    - vc 14  # [win and >py35]
 
   run:
     - python
@@ -43,6 +46,7 @@ requirements:
     - pytest
     - tinyarray
     - libgfortran
+    - vc 14  # [win and >py35]
 
 test:
   imports:
