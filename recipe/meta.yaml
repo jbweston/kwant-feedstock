@@ -22,6 +22,7 @@ build:
 requirements:
   build:
     - python
+    - mkl  # [win]
     - toolchain
     - cython
     - gcc  # [osx]
@@ -37,6 +38,7 @@ requirements:
 
   run:
     - python
+    - mkl  # [win]
     - blas 1.1 {{ variant }}  # [not win]
     - openblas 0.2.19|0.2.19.*  # [not win]
     - mumps  # [not win]
