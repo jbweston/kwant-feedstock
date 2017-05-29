@@ -1,0 +1,29 @@
+diff --git a/setup.py b/setup.py
+index f3268a2..99dbfd7 100755
+--- a/setup.py
++++ b/setup.py
+@@ -69,6 +69,8 @@ def configure_extensions(exts, aliases=(), build_summary=None):
+     else:
+         config_file_present = True
+
++    print('Config file:', config_file)
++
+     #### Handle section aliases.
+     for short, long in aliases:
+         if short in configs:
+@@ -82,6 +84,7 @@ def configure_extensions(exts, aliases=(), build_summary=None):
+     #### Apply config from file.  Use [DEFAULT] section for missing sections.
+     defaultconfig = configs.defaults()
+     for name, kwargs in exts.items():
++        print('applying', name, kwargs)
+         config = configs[name] if name in configs else defaultconfig
+         for key, value in config.items():
+
+@@ -114,6 +117,8 @@ def configure_extensions(exts, aliases=(), build_summary=None):
+         print('Error: Unknown sections in file {}: {}'.format(
+             config_file, ', '.join(unknown_sections)))
+         sys.exit(1)
++    
++    print(exts)
+
+     return exts
