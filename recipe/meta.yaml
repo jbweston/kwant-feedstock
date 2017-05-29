@@ -12,7 +12,7 @@ source:
   sha256: 8a507df7de3513c4fe01e7e547b6c3eaa480d581391995b717f980aa9d36be34
 
 build:
-  skip: true  # [win or py2k]
+  skip: true  # [py2k]
   number: 201
   features:
     - blas_{{ variant }}
