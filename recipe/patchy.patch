@@ -1,5 +1,5 @@
 diff --git a/setup.py b/setup.py
-index f3268a2..dfe2bbe 100755
+index f3268a2..e8db9ff 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -69,6 +69,8 @@ def configure_extensions(exts, aliases=(), build_summary=None):
@@ -15,7 +15,7 @@ index f3268a2..dfe2bbe 100755
              configs[long] = configs[short]
              del configs[short]
 
-+    print('CONFIGS AYYY:', configs['kwant.linalg.lapack']['libraries'])
++    print('CONFIGS AYYY:', configs.get('kwant.linalg.lapack', 'libraries'))
 +
      #### Apply config from file.  Use [DEFAULT] section for missing sections.
      defaultconfig = configs.defaults()
