@@ -5,7 +5,7 @@ index f3268a2..e8db9ff 100755
 @@ -69,6 +69,8 @@ def configure_extensions(exts, aliases=(), build_summary=None):
      else:
          config_file_present = True
-
+ 
 +    print('Config file:', config_file)
 +
      #### Handle section aliases.
@@ -14,9 +14,9 @@ index f3268a2..e8db9ff 100755
 @@ -79,10 +81,14 @@ def configure_extensions(exts, aliases=(), build_summary=None):
              configs[long] = configs[short]
              del configs[short]
-
-+    print('CONFIGS AYYY:', configs.get('kwant.linalg.lapack', 'libraries'))
-+
+ 
++    print('CONFIGS AYYY:', configs.sections())
++    print('IS IT EVEN?', config_file_present)
      #### Apply config from file.  Use [DEFAULT] section for missing sections.
      defaultconfig = configs.defaults()
      for name, kwargs in exts.items():
@@ -24,7 +24,7 @@ index f3268a2..e8db9ff 100755
 +        if name == 'kwant.linalg.lapack':
 +            print('YOLO', config, defaultconfig)
          for key, value in config.items():
-
+ 
              # Most, but not all, keys are lists of strings
 @@ -103,6 +109,10 @@ def configure_extensions(exts, aliases=(), build_summary=None):
                  msg = 'Caution: user config in file {} shadows {}.{}.'
@@ -35,12 +35,14 @@ index f3268a2..e8db9ff 100755
 +                print('SETTING', key, value)
 +
              kwargs[key] = value
-
+ 
          kwargs.setdefault('depends', []).append(config_file)
 @@ -115,6 +125,8 @@ def configure_extensions(exts, aliases=(), build_summary=None):
              config_file, ', '.join(unknown_sections)))
          sys.exit(1)
-
+ 
 +    print(exts)
 +
      return exts
+ 
+ 
