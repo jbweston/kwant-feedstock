@@ -45,7 +45,7 @@ requirements:
     - scipy
     - pytest
     - tinyarray
-    - libgfortran
+    - libgfortran  # [not win]
     - vc 14  # [win]
 
 test:
