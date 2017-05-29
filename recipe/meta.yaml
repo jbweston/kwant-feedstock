@@ -23,9 +23,9 @@ requirements:
     - toolchain
     - cython
     - gcc  # [osx]
-    - blas 1.1 {{ variant }}
-    - openblas 0.2.19|0.2.19.*
-    - mumps
+    - blas 1.1 {{ variant }}  # [not win]
+    - openblas 0.2.19|0.2.19.*  # [not win]
+    - mumps  # [not win]
     - numpy x.x
     - scipy
     - pytest
@@ -34,9 +34,9 @@ requirements:
 
   run:
     - python
-    - blas 1.1 {{ variant }}
-    - openblas 0.2.19|0.2.19.*
-    - mumps
+    - blas 1.1 {{ variant }}  # [not win]
+    - openblas 0.2.19|0.2.19.*  # [not win]
+    - mumps  # [not win]
     - numpy x.x
     - matplotlib
     - scipy
