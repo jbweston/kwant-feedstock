@@ -13,7 +13,7 @@ source:
 
 build:
   skip: true  # [win or py2k]
-  number: 201
+  number: 202
   features:
     - blas_{{ variant }}
 
@@ -26,7 +26,9 @@ requirements:
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
     - mumps
-    - numpy x.x
+    - numpy 1.7.*  # [py27]
+    - numpy 1.9.*  # [py35]
+    - numpy 1.11.*  # [py36]
     - scipy
     - pytest
     - tinyarray
@@ -37,12 +39,15 @@ requirements:
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
     - mumps
-    - numpy x.x
+    - numpy >=1.7  # [py27]
+    - numpy >=1.9  # [py35]
+    - numpy >=1.11  # [py36]
     - matplotlib
     - scipy
     - pytest
     - tinyarray
     - libgfortran
+    - sympy
 
 test:
   imports:
@@ -56,6 +61,9 @@ test:
     - kwant.solvers
     - kwant.solvers.tests
     - kwant.tests
+  commands:
+    - conda inspect linkages -p $PREFIX kwant  # [not win]
+    - conda inspect objects -p $PREFIX kwant  # [osx]
 
 about:
   home: http://kwant-project.org/
@@ -64,10 +72,10 @@ about:
   license_family: BSD
   summary: 'Package for numerical quantum transport calculations.'
   description: |
-    Kwant is a free (open source) Python package for numerical calculations on 
-    tight-binding models with a strong focus on quantum transport. It is designed to 
-    be flexible and easy to use. Thanks to the use of innovative algorithms, Kwant 
-    is often faster than other available codes, even those entirely written in the 
+    Kwant is a free (open source) Python package for numerical calculations on
+    tight-binding models with a strong focus on quantum transport. It is designed to
+    be flexible and easy to use. Thanks to the use of innovative algorithms, Kwant
+    is often faster than other available codes, even those entirely written in the
     low level FORTRAN and C/C++ languages.
   doc_url: https://kwant-project.org/doc/1/
   dev_url: https://gitlab.kwant-project.org/kwant/kwant/
