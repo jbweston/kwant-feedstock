@@ -12,7 +12,7 @@ source:
   sha256: 8a507df7de3513c4fe01e7e547b6c3eaa480d581391995b717f980aa9d36be34
 
 build:
-  skip: true  # [win or py2k]
+  skip: true  # [py2k]
   number: 202
   features:
     - blas_{{ variant }}
@@ -24,8 +24,8 @@ requirements:
     - cython
     - gcc  # [osx]
     - blas 1.1 {{ variant }}
-    - openblas 0.2.19|0.2.19.*
-    - mumps
+    - openblas 0.2.19|0.2.19.*  # [not win]
+    - mumps  # [not win]
     - numpy 1.7.*  # [py27]
     - numpy 1.9.*  # [py35]
     - numpy 1.11.*  # [py36]
@@ -37,8 +37,8 @@ requirements:
   run:
     - python
     - blas 1.1 {{ variant }}
-    - openblas 0.2.19|0.2.19.*
-    - mumps
+    - openblas 0.2.19|0.2.19.*  # [not win]
+    - mumps  # [not win]
     - numpy >=1.7  # [py27]
     - numpy >=1.9  # [py35]
     - numpy >=1.11  # [py36]
@@ -46,7 +46,7 @@ requirements:
     - scipy
     - pytest
     - tinyarray
-    - libgfortran
+    - libgfortran  # [not win]
     - sympy
 
 test:
