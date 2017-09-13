@@ -15,7 +15,7 @@ build:
   skip: true  # [py2k]
   number: 202
   features:
-    - blas_{{ variant }}
+    - blas_{{ variant }}  # [not win]
 
 requirements:
   build:
