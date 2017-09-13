@@ -23,8 +23,6 @@ requirements:
     - toolchain
     - cython
     - gcc  # [osx]
-    - blas 1.1 {{ variant }}
-    - openblas 0.2.19|0.2.19.*  # [not win]
     - mumps  # [not win]
     - numpy 1.7.*  # [py27]
     - numpy 1.9.*  # [py35]
@@ -36,8 +34,6 @@ requirements:
 
   run:
     - python
-    - blas 1.1 {{ variant }}
-    - openblas 0.2.19|0.2.19.*  # [not win]
     - mumps  # [not win]
     - numpy >=1.7  # [py27]
     - numpy >=1.9  # [py35]
@@ -46,7 +42,7 @@ requirements:
     - scipy
     - pytest
     - tinyarray
-    - libgfortran  # [not win]
+    - libgfortran  # [linux]
     - sympy
 
 test:
