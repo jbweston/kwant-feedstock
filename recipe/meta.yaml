@@ -19,34 +19,34 @@ build:
 
 requirements:
   build:
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
-    - toolchain
     - cython
-    - gcc  # [osx]
     - blas 1.1 {{ variant }}
-    - openblas 0.2.20|0.2.20.*
+    - openblas
     - mumps
-    - numpy 1.7.*  # [py27]
-    - numpy 1.9.*  # [py35]
-    - numpy 1.11.*  # [py36]
+    - numpy        # [py27]
+    - numpy        # [py35]
+    - numpy         # [py36]
     - scipy
     - pytest
     - tinyarray
-    - libgfortran  # [linux]
 
   run:
     - python
     - blas 1.1 {{ variant }}
-    - openblas 0.2.20|0.2.20.*
+    - openblas
     - mumps
-    - numpy >=1.7  # [py27]
-    - numpy >=1.9  # [py35]
-    - numpy >=1.11  # [py36]
+    - {{ pin_compatible('numpy') }}   # [py27]
+    - {{ pin_compatible('numpy') }}   # [py35]
+    - {{ pin_compatible('numpy') }}   # [py36]
     - matplotlib
     - scipy
     - pytest
     - tinyarray
-    - libgfortran
     - sympy
 
 test:
