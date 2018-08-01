@@ -13,7 +13,7 @@ source:
 
 build:
   skip: true  # [win or py2k]
-  number: 202
+  number: 203
   features:
     - blas_{{ variant }}
 
@@ -28,9 +28,9 @@ requirements:
     - blas 1.1 {{ variant }}
     - openblas
     - mumps
-    - numpy        # [py27]
-    - numpy        # [py35]
-    - numpy         # [py36]
+    - numpy  # [py27]
+    - numpy  # [py35]
+    - numpy  # [py36]
     - scipy
     - pytest
     - tinyarray
@@ -40,14 +40,14 @@ requirements:
     - blas 1.1 {{ variant }}
     - openblas
     - mumps
-    - {{ pin_compatible('numpy') }}   # [py27]
-    - {{ pin_compatible('numpy') }}   # [py35]
-    - {{ pin_compatible('numpy') }}   # [py36]
+    - {{ pin_compatible('numpy') }}  # [py27]
+    - {{ pin_compatible('numpy') }}  # [py35]
+    - {{ pin_compatible('numpy') }}  # [py36]
     - matplotlib
     - scipy
     - pytest
     - tinyarray
-    - sympy
+    - sympy<=1.1
 
 test:
   imports:
