@@ -10,8 +10,6 @@ docker_image:
 - condaforge/linux-anvil
 fortran_compiler:
 - toolchain_fort
-numpy:
-- '1.9'
 openblas:
 - 0.2.20
 pin_run_as_build:
