@@ -14,8 +14,8 @@ source:
     - skip_tests.patch  # [win]
 
 build:
-  skip: true  # [py2k and win]
-  number: 0
+  skip: true  # [py2k]
+  number: 1
 
 requirements:
   build:
