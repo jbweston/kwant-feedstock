@@ -1,6 +1,5 @@
 {% set name = "kwant" %}
 {% set version = "1.4.0a1" %}
-{% set variant = "openblas" %}
 
 package:
   name: {{ name }}
@@ -14,8 +13,8 @@ source:
     - skip_tests.patch  # [win]
 
 build:
-  skip: true  # [py2k and win]
-  number: 0
+  skip: true  # [py2k]
+  number: 1
 
 requirements:
   build:
@@ -25,8 +24,10 @@ requirements:
   host:
     - python
     - cython
-    - blas 1.1 {{ variant }}
-    - openblas
+    - blas 1.1 openblas  # [not win]
+    - blas 1.0 mkl  # [win]
+    - openblas  # [not win]
+    - mkl  # [win]
     - mumps  # [not win]
     - numpy >=1.11
     - scipy
@@ -34,15 +35,17 @@ requirements:
     - tinyarray
   run:
     - python
-    - blas 1.1 {{ variant }}
-    - openblas
+    - blas 1.1 openblas  # [not win]
+    - blas 1.0 mkl  # [win]
+    - openblas  # [not win]
+    - mkl  # [win]
     - mumps  # [not win]
     - {{ pin_compatible('numpy') }}
     - matplotlib
     - scipy
     - pytest
     - tinyarray
-    - sympy
+    - sympy <=1.1  # https://gitlab.kwant-project.org/kwant/kwant/issues/225
     - vc 14  # [win and py>=35]
 
 test:
