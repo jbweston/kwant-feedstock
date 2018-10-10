@@ -29,7 +29,7 @@ requirements:
     - blas 1.0 mkl  # [win]
     - openblas  # [not win]
     - mkl  # [win]
-    - mumps-seq  # [not win]
+    - mumps-seq
     - numpy 1.11
     - scipy
     - pytest
@@ -40,7 +40,7 @@ requirements:
     - blas 1.0 mkl  # [win]
     - openblas  # [not win]
     - mkl  # [win]
-    - mumps-seq  # [not win]
+    - mumps-seq
     - {{ pin_compatible('numpy') }}
     - matplotlib
     - scipy
