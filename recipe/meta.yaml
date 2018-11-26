@@ -29,7 +29,7 @@ requirements:
     - openblas  # [not win]
     - mkl  # [win]
     - mumps-seq  # [not win]
-    - numpy >=1.11
+    - numpy 1.11
     - scipy
     - pytest
     - tinyarray
