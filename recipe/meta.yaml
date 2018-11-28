@@ -14,7 +14,7 @@ source:
 
 build:
   skip: true  # [py2k]
-  number: 2
+  number: 1002
 
 requirements:
   build:
