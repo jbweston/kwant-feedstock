@@ -38,6 +38,7 @@ requirements:
     - scipy
     - pytest
     - tinyarray
+    - vc 14  # [win and py>=35]
   run:
     - python
     - blas 1.1 openblas  # [not win]
