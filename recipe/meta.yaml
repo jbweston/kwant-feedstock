@@ -1,5 +1,5 @@
 {% set name = "kwant" %}
-{% set version = "1.4.0a1" %}
+{% set version = "1.4.0rc0" %}
 
 package:
   name: {{ name }}
@@ -7,15 +7,15 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://downloads.kwant-project.org/kwant/kwant-{{ version }}.tar.gz
-  sha256: e43e9ed928ff3e7cbe8e7b9e4b671871a36c72dd1000548746098af89f102a67
+  url: http://josephweston.org/uploads/kwant-{{ version }}.tar.gz
+  sha256: eb487b7d1f4f859255c5ec1901b029a792e1e03b918f1a169c57f612a48bc366
   patches:
     - skip_tests.patch  # [win]
 
 build:
   skip: true  # [py2k]
   skip: true  # [py==37]
-  number: 1002
+  number: 0
 
 requirements:
   build:
