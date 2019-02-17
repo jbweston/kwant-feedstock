@@ -15,7 +15,7 @@ index 5d4c3087..ff3386ff 100755
 +        # Newer windows required newer things.
 +        dlls = self.dll_libraries
 +        if 'msvcr140' in dlls:
-+            dlls[dlls.index('msvcr140')] = 'vcruntime140'
++            del dlls[dlls.index('msvcr140')]
 +
 +
 +cygwinccompiler.FakeCompiler = FakeCompiler
