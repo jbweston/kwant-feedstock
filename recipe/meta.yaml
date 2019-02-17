@@ -11,6 +11,7 @@ source:
   sha256: e43e9ed928ff3e7cbe8e7b9e4b671871a36c72dd1000548746098af89f102a67
   patches:
     - skip_tests.patch  # [win]
+    - win_compiler.patch  # [win]
 
 build:
   skip: true  # [py2k]
