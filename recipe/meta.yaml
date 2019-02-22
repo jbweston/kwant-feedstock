@@ -1,5 +1,5 @@
 {% set name = "kwant" %}
-{% set version = "1.4.0a1" %}
+{% set version = "1.4.0rc1" %}
 
 package:
   name: {{ name }}
@@ -8,14 +8,13 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://downloads.kwant-project.org/kwant/kwant-{{ version }}.tar.gz
-  sha256: e43e9ed928ff3e7cbe8e7b9e4b671871a36c72dd1000548746098af89f102a67
+  sha256: 3bdd7a172c303fa9d873e4126de8becc1fb5e3d4dfb2114803d29410033f49f2
   patches:
     - skip_tests.patch  # [win]
 
 build:
   skip: true  # [py2k]
-  skip: true  # [py==37]
-  number: 1002
+  number: 0
 
 requirements:
   build:
@@ -46,7 +45,7 @@ requirements:
     - scipy
     - pytest
     - tinyarray
-    - sympy <=1.1  # https://gitlab.kwant-project.org/kwant/kwant/issues/225
+    - sympy
     - vc 14  # [win and py>=35]
 
 test:
