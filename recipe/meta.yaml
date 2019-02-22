@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://downloads.kwant-project.org/kwant/kwant-{{ version }}.tar.gz
-  sha256: 05fa3d92a6e46e64d6c0c436ba952d71e55f8e1c86ada2145ba1d4bbd6982dbc
+  sha256: 3bdd7a172c303fa9d873e4126de8becc1fb5e3d4dfb2114803d29410033f49f2
   patches:
     - skip_tests.patch  # [win]
 
